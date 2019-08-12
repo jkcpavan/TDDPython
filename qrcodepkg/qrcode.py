@@ -1,5 +1,6 @@
 import pyqrcode
 import base64
+
 class qrcode(object):
     def info(self):
         return "Swagger"

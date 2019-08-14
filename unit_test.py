@@ -1,6 +1,8 @@
 import unittest
+from unittest.mock import patch, Mock
 
 from qrcodepkg.qrcode import qrcode
+from qrrelation.relation import relation
 
 class qrtest(unittest.TestCase):
 	def setUp(self):
@@ -24,6 +26,18 @@ class qrtest(unittest.TestCase):
 		self.assertIn(b'PNG', self.tmp.createQR(' '))
 	def test_create_qrcode_empty_special_char(self):
 		self.assertIn(b'PNG', self.tmp.createQR(' _*&^%$$#@!~ '))
+
+class qrrelationtest(unittest.TestCase):
+	@patch('qrrelation.relation.relation.relationdf',return_value='5678')
+	def setUp(self,relationdf_mock):
+		self.tmp=relation()
+		#relationdf_mock.return_value='5678'
+	@patch('qrrelation.relation.relation.relationdf',return_value='5678')
+	def test_getrelation(self,relationdf_mock):
+		self.assertIsNotNone(self.tmp.getRelation("tmp"))
+	@patch('qrrelation.relation.relation.relationdf',return_value='5678')
+	def test_getRelation_data(self,relationdf_mock):
+		self.assertEqual("5678",self.tmp.getRelation("Sample"))
 
 if __name__=="__main__":
 	unittest.main()

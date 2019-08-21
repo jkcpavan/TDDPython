@@ -1,0 +1,4 @@
+[report]
+fail_under = 100
+[run]
+source = data_acquisition

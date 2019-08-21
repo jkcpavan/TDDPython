@@ -5,6 +5,6 @@ coverage run -a --source ./ End2End-test.py
 
 coverage html
 coverage xml
-coverage report -m
+coverage report -m --fail-under=100
 
 start chrome .\htmlcov\index.html

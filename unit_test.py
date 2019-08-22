@@ -38,6 +38,8 @@ class qrrelationtest(unittest.TestCase):
 	@patch('qrrelation.relation.relation.relationdf',return_value='5678')
 	def test_getRelation_data(self,relationdf_mock):
 		self.assertEqual("5678",self.tmp.getRelation("Sample"))
+	def test_getRelation_df(self):
+		self.assertEqual("1234",self.tmp.relationdf("Sample"))
 
 if __name__=="__main__":
 	unittest.main()

@@ -1,0 +1,41 @@
+{
+	"variables": [],
+	"info": {
+		"name": "PythonTDD",
+		"_postman_id": "ceb60333-5a58-50b3-bad6-aa74970f4635",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Postman",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Body matches string\"] = responseBody.has(\"PNG\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://{{qruri}}/{{value}}",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X_FORWARDED_PROTO",
+						"value": "HTTPS",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
